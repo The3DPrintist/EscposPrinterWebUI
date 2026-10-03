@@ -1,4 +1,4 @@
-# Automated Receipt Printing System
+# Webpage Receipt Printing System
 
 A Python-based service that fetches data from a remote server and automatically prints it via a USB thermal printer using the `python-escpos` library.
 
