@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Python Test</title>
+</head>
+
+<body>
+
+<!-- Input Text Box -->
+<input type="text" id="userInput" placeholder="Type a message here...">
+
+<!-- Send Button -->
+<button onclick="sendData()">Send</button>
+
+<script>
+function sendData() {
+    // Get the value typed in the textbox
+    const messageText = document.getElementById("userInput").value;
+
+    fetch("http://127.0.0.1:5000/data", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            message: messageText
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Python responded:", data);
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+}
+</script>
+
+</body>
+</html>
